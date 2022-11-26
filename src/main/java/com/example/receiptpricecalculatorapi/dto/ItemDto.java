@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 public class ItemDto {
     private Long id;
     private BigDecimal basePrice;
+    private String itemDescription;
     private int units;
     private int percentageDiscount;
     private String itemId;
