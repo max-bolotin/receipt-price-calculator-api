@@ -22,7 +22,6 @@ public class HttpClient {
         HttpGet request = new HttpGet(url);
         try (CloseableHttpResponse response = httpClient.execute(request)) {
 
-            System.out.println(response.getStatusLine().toString());
             return objectMapper.readValue(response.getEntity().getContent(), clazz);
 
         } catch (IOException e) {
