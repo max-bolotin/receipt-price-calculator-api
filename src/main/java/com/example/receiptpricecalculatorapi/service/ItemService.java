@@ -1,11 +1,10 @@
 package com.example.receiptpricecalculatorapi.service;
 
-import com.example.receiptpricecalculatorapi.model.Item;
-
-import java.math.BigDecimal;
+import com.example.receiptpricecalculatorapi.dto.ItemProjection;
+import java.util.List;
 
 public interface ItemService {
     void syncItems();
 
-    BigDecimal totalPrice(Item item);
+    List<ItemProjection> getTotalPriceForAllItems();
 }

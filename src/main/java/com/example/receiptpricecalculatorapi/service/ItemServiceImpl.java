@@ -1,12 +1,13 @@
 package com.example.receiptpricecalculatorapi.service;
 
 import com.example.receiptpricecalculatorapi.dto.ItemDto;
+import com.example.receiptpricecalculatorapi.dto.ItemProjection;
 import com.example.receiptpricecalculatorapi.dto.mapper.ItemMapper;
 import com.example.receiptpricecalculatorapi.model.Item;
 import com.example.receiptpricecalculatorapi.repository.ItemRepository;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -35,9 +36,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public BigDecimal totalPrice(Item item) {
-        BigDecimal totalPriceWithoutDiscount = item.getBasePrice().multiply(BigDecimal.valueOf(item.getUnits()));
-        BigDecimal discount = totalPriceWithoutDiscount.multiply(BigDecimal.valueOf(item.getPercentageDiscount() / 100));
-        return totalPriceWithoutDiscount.subtract(discount);
+    public List<ItemProjection> getTotalPriceForAllItems() {
+        return repository.findAllWithDiscount();
     }
 }
