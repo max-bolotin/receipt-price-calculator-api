@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class HttpClient {
     private final CloseableHttpClient httpClient = HttpClients.createDefault();
-    private ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     {
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -21,10 +21,7 @@ public class HttpClient {
     public <T> T get(String url, Class<T> clazz) {
         HttpGet request = new HttpGet(url);
         try (CloseableHttpResponse response = httpClient.execute(request)) {
-
-            System.out.println(response.getStatusLine().toString());
             return objectMapper.readValue(response.getEntity().getContent(), clazz);
-
         } catch (IOException e) {
             throw new RuntimeException("Can't fetch info from URL " + url, e);
         }
