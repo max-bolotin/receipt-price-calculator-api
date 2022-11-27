@@ -1,8 +1,7 @@
 package com.example.receiptpricecalculatorapi.dto;
 
-import lombok.Data;
-
 import java.math.BigDecimal;
+import lombok.Data;
 
 @Data
 public class ItemDto {

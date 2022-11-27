@@ -5,12 +5,10 @@ import com.example.receiptpricecalculatorapi.dto.ItemProjection;
 import com.example.receiptpricecalculatorapi.dto.mapper.ItemMapper;
 import com.example.receiptpricecalculatorapi.model.Item;
 import com.example.receiptpricecalculatorapi.repository.ItemRepository;
-import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.stereotype.Service;
 
 @Service
 public class ItemServiceImpl implements ItemService {

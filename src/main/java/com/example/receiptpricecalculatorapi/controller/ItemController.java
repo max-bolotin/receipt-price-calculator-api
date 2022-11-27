@@ -2,11 +2,10 @@ package com.example.receiptpricecalculatorapi.controller;
 
 import com.example.receiptpricecalculatorapi.dto.ItemProjection;
 import com.example.receiptpricecalculatorapi.service.ItemService;
+import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/items")
