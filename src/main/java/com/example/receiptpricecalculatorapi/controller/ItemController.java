@@ -21,7 +21,7 @@ public class ItemController {
     @ApiOperation("Save products info from the receipt into the DB")
     public String saveItemsToDb() {
         itemService.syncItems();
-        return "Items added successfully";
+        return "Items saved successfully!";
     }
 
     @GetMapping("/get-result")
